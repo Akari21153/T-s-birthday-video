@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8" />
+   <title>なぞなぞ！</title>
+</head>
+<style>
+   .font-container {
+       background: hsla(120, 67%, 70%, 0.667);
+       border-radius: 12px;
+       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+       width: 90%;
+       max-width: 700px;
+       padding: 20px;
+       margin-left: 80px;
+       margin-right: 80px;
+   }
+</style>
+<body>
+ <center><h1>なぞなぞ！</h1>
+    <!-- 1問目 -->
+    <form id="quiz-form-1">
+        <div class="font-container">
+            <p>いま、なんじ？</p>
+            <label for="answer1-1">
+                <input type="radio" name="answer1" id="answer1-1" value="２じ">２じ
+            </label>
+            <label for="answer1-2">
+                <input type="radio" name="answer1" id="answer1-2" value="８じ">８じ
+            </label>
+            <label for="answer1-3">
+                <input type="radio" name="answer1" id="answer1-3" value="１２じ">１２じ
+            </label>
+            <button type="submit">回答</button>
+        </div>
+    </form>
+    <p id="result1"></p>
+
+    <!-- 2問目 -->
+    <form id="quiz-form-2">
+        <div class="font-container">
+            <p>1年に1回しか来ないけど、毎年楽しみにしているものは？</p>
+            <label for="answer2-1">
+                <input type="radio" name="answer2" id="answer2-1" value="お正月">お正月
+            </label>
+            <label for="answer2-2">
+                <input type="radio" name="answer2" id="answer2-2" value="誕生日">誕生日
+            </label>
+            <label for="answer2-3">
+                <input type="radio" name="answer2" id="answer2-3" value="祝日">祝日
+            </label>
+            <button type="submit">回答</button>
+        </div>
+    </form>
+    <p id="result2"></p>
+
+    <!-- 3問目 -->
+    <form id="quiz-form-3">
+        <div class="font-container">
+            <p>どんなに小さくても、消えることのないものは？</p>
+            <label for="answer3-1">
+                <input type="radio" name="answer3" id="answer3-1" value="誕生日ケーキ">誕生日ケーキ
+            </label>
+            <label for="answer3-2">
+                <input type="radio" name="answer3" id="answer3-2" value="綿あめ">綿あめ
+            </label>
+            <label for="answer3-3">
+                <input type="radio" name="answer3" id="answer3-3" value="思い出">思い出
+            </label>
+            <button type="submit">回答</button>
+        </div>
+    </form>
+    <p id="result3"></p>
+
+    <script>
+        // 1問目
+        const quizForm1 = document.getElementById('quiz-form-1');
+        const result1 = document.getElementById('result1');
+        quizForm1.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const selectedAnswer1 = document.querySelector('input[name="answer1"]:checked').value;
+            if (selectedAnswer1 === '２じ') {
+                result1.textContent = '正解！2字「いま」の文字数は2文字だよ！';
+            } else {
+                result1.textContent = '不正解！';
+            }
+        });
+
+        // 2問目
+        const quizForm2 = document.getElementById('quiz-form-2');
+        const result2 = document.getElementById('result2');
+        quizForm2.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const selectedAnswer2 = document.querySelector('input[name="answer2"]:checked').value;
+            if (selectedAnswer2 === '誕生日') {
+                result2.textContent = '正解！ お正月はだいたい３日間だから！祝日も一年で１７回あるんだよ！';
+            } else {
+                result2.textContent = '不正解！';
+            }
+        });
+
+        // 3問目
+        const quizForm3 = document.getElementById('quiz-form-3');
+        const result3 = document.getElementById('result3');
+        quizForm3.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const selectedAnswer3 = document.querySelector('input[name="answer3"]:checked').value;
+            if (selectedAnswer3 === '思い出') {
+                result3.textContent = '正解！最終的に全問正解正解したから、これをプレゼントするね！';
+            } else {
+                result3.textContent = '不正解！';
+            }
+        });
+    </script>
+</center>
+</body>
+</html>
